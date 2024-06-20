@@ -35,7 +35,15 @@ class Chat{
 // Utilisation de paramètres
 
 $chat1 = new Chat("Smoothie","Croisée Main Coon",".\img\Smoothie.jpeg");
-$chat1 -> affiche();
+// $chat1 -> affiche();
 $chat1 ->miaule();
 
 // Utilisation d'un constructeur dans la classe
+
+// Utilisation appeler une fonction pour un tableau:
+
+$tableauChats = [$chat1,$chat2, $chat3];
+
+foreach($tableauChats as $chats){
+    $chat ->afficher();
+}
