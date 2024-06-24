@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exe ludo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
     <header>
     <h1>Bienvenue</h1>
     </header>
     <main>
-        <nav>
-            <a href="LudoInsert.php">Ajouter un jeu</a>
-            <a href="LudoSearch.php">Chercher un jeu</a>            
-        </nav>
+        <?php
+        include("nav.php");
 
+        ?>
+        
         <h3>Les 5 derniers jeux insérés</h3>
         <?php
         
@@ -22,7 +23,7 @@
         include("config.php");
         try{
             $cnx = new PDO(DSN,USER_NAME,PASSWORD);
-            var_dump($cnx);
+            // var_dump($cnx);
         }
         catch (Exception $e){
                 // Expliquer ce qui se passe
@@ -44,10 +45,11 @@
         $array_jeux = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         // 6. Afficher les données de manière choisie
-        var_dump($array_jeux);
+        // var_dump($array_jeux);
         print("<ul>");
         foreach ($array_jeux as $jeu){
-            echo("<li><a href=''>".$jeu['Nom']."</a></li>");
+            echo("<li><a href=''>".$jeu['Nom']."</a></li> <br>");
+            echo("<img src ='./uploads/". $jeu['Image']."' alt = 'photo du jeu'>");
         }        
         print("</ul>");
         
