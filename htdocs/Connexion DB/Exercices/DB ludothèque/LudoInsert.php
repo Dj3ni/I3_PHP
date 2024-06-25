@@ -14,7 +14,9 @@
 </style>
 <body>
     <?php
+        include ("checkSession.php");
         include("nav.php");
+        
 
         ?>
     <h1>Ajouter un jeu</h1>

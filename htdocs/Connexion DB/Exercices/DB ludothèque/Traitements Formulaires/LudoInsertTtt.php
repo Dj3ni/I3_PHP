@@ -17,9 +17,9 @@
     
 <?php
 
-
-    var_dump($_POST); //pour debug 
-    var_dump($_FILES); //pour debug, vérifier qu'on a bien reçu le fichier
+include ("../checkSession.php");
+    // var_dump($_POST); //pour debug 
+    // var_dump($_FILES); //pour debug, vérifier qu'on a bien reçu le fichier
 
     foreach($_POST as $key => $value){
         echo($key. " : " .$value . "<br>");
@@ -40,8 +40,8 @@
         // print($uploadPath);//pour debug
 
         // 3. Déplacer le fichier temporaire et le stocker dans le serveur (from -to )
-        move_uploaded_file($_FILES["photo"]['tmp_name'], $uploadPath);
-        if (move_uploaded_file($_FILES['userFile']['tmp_name'], $uploadFile)){
+        
+        if (move_uploaded_file($_FILES["photo"]['tmp_name'], $uploadPath)){
             echo "<BR/>Ok! fichier uploaded";
         }
         else {
@@ -67,8 +67,6 @@
             // 3. Une requête du type Insert
 
             $sql ="INSERT INTO jeux  (id, NOM, Age, Nbr_joueurs_min,Nbr_joueurs_max,Duree,Description,Image) VALUES (null, :titre, :ageMin, :joueursMin, :joueursMax,:duree,:descript,:image)" ;   //Ici ce sont des placeholder, on ne peut pas mettre de variable dans une requête sql
-            
-            // (id, NOM, Age, Nbr_joueurs_min,Nbr_joueurs_max, Duree)
             
             // 4. Préparer la requête
             $stmt = $cnx->prepare($sql); //Objet PDOStatement

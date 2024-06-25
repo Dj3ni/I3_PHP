@@ -17,20 +17,21 @@
 </nav>
 
     <?php
+    include ("../checkSession.php");
 
-    var_dump($_POST); //pour debug 
+    // var_dump($_POST); //pour debug 
 
     // Pour connecter à la database:
     include("../config.php");
     
             // 1. Obtenir le terme de recherche du formulaire
             $recherche = $_POST["terme"];
-            var_dump($recherche);
+            // var_dump($recherche);
 
             // 2. Connecter à la DB
             try{
                 $cnx = new PDO(DSN,USER_NAME,PASSWORD);
-                var_dump($cnx);
+                // var_dump($cnx);
             }
             catch (Exception $e){
                     // Expliquer ce qui se passe
@@ -38,12 +39,12 @@
                     // Afficher un image et un lien pour revenir en arrière.
                 print("<img src =''>");
                 print("<a href = '../index.php'>Retour à l'accueil</a>");
-                var_dump($e->getMessage());// commenter quand en production, uniquement pour debug ( revient au même qu'un tableau orange)
+                // var_dump($e->getMessage());// commenter quand en production, uniquement pour debug ( revient au même qu'un tableau orange)
                 die("");// arrête le script
             }        
 
             // 3. Une requête de recherche par fragments (on ne peut pas se permettre de faire une recherche en termes exacts!)
-            $sql = "SELECT * FROM jeux WHERE Nom LIKE ':terme'";
+            $sql = "SELECT * FROM jeux WHERE Nom LIKE :terme";
             
             // LIKE / % = qui contient..% : peut importe ce qui est avant ou après
 
@@ -60,14 +61,17 @@
 
             // 6. Obtenir les données
             $arrayJeux = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            var_dump($arrayJeux);
+            // var_dump($arrayJeux);
 
             // 7. Les afficher sur le site
             print("<ul>");
-            foreach ($array_jeux as $jeu){
+            foreach ($arrayJeux as $jeu){
                 echo("<li><a href=''>".$jeu['Nom']."</a></li>");
-            }        
+                echo("<img src ='./uploads/". $jeu['Image']."' alt = 'photo du jeu'>");            }        
             print("</ul>");
+
+            // Form pour noter le film
+            
                 
     ?>
     
