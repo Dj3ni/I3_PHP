@@ -24,13 +24,27 @@ include("../config.php");
     $pseudo = $_POST["pseudo"];
     $email = $_POST["email"];
     
-    // $avatar = $_FILES["avatar"];
+    
 
         // Hacher le mdp!
         $password = $_POST["password"];
         $passwordHashed = password_hash($password,PASSWORD_DEFAULT, ['cost'=>12]);
             // arguments: 1. variable qui contient le mdp, l'algorythme de hashage, le nombre de passage par la fonction
-        
+    
+        // uploader l'avatar
+        $avatar = $_FILES["avatar"];
+            // Créer un nom unique pour le fichier
+            $uploadDir = "../uploads";
+            $uploadFile = uniqid().$avatar["name"].date("h-i-s");
+            $uploadPath = $uploadDir . "/". $uploadFile;
+            // Le bouger de tmp
+
+            if(move_uploaded_file($avatar["tmp_name"],$uploadPath)){
+                echo("File uploaded");
+            }
+            else{
+                echo("Problem with uploading file, try again");
+            }
 
     // 2. Connecter à la DB
 
@@ -70,7 +84,7 @@ include("../config.php");
     else{
         // -> Insert si pas enregistré
 
-        $sql = "INSERT INTO utilisateur (id, Pseudo, Email, Password) VALUES (null, :pseudo, :email, :password)";
+        $sql = "INSERT INTO utilisateur (id, Pseudo, Email, Password, Avatar) VALUES (null, :pseudo, :email, :password, :avatar)";
 
         // 4. Préparer 
 
@@ -79,7 +93,7 @@ include("../config.php");
         $stmt -> bindValue(":pseudo", $pseudo);
         $stmt -> bindValue(":email",$email);
         $stmt -> bindValue(":password", $passwordHashed);
-        // $stmt -> bindValue(":avatar", $avatar);
+        $stmt -> bindValue(":avatar", $uploadFile);
 
         // 5. Exécuter
         $stmt->execute(); 

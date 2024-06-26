@@ -11,7 +11,7 @@
     <a href="./inscription.php">Inscription</a>
 </nav>
 
-<form action="Traitements Formulaires/inscriptionTtt.php" method="post">
+<form action="Traitements Formulaires/inscriptionTtt.php" method="post" enctype="multipart/form-data">
     <div>
         <label for="pseudo">Pseudo: </label>
         <input id = "pseudo" type="text" name = "pseudo">
@@ -23,6 +23,10 @@
     <div>
         <label for="password">Password: </label>
         <input id = "password" type="text" name = "password">
+    </div>
+    <div>
+        <label for="avatar">Avatar: </label>
+        <input id = "avatar" name = "avatar" type="file">
     </div>
     <button type = "submit">Enregistrer</button>
     </form>
