@@ -19,7 +19,7 @@
     </div>
     <div>
         <label for="password">Password: </label>
-        <input id = "password" type="text" name = "password">
+        <input id = "password" type="password" name = "password">
     </div>
     <button type = "submit">Se connecter</button>
     </form>

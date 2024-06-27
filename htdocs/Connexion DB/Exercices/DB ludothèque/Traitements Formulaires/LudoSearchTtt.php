@@ -67,7 +67,7 @@
             print("<ul>");
             foreach ($arrayJeux as $jeu){
                 echo("<li><a href=''>".$jeu['Nom']."</a></li>");
-                echo("<img src ='./uploads/". $jeu['Image']."' alt = 'photo du jeu'>");            }        
+                echo("<img src ='../uploads/". $jeu['Image']."' alt = '".$jeu['Nom']."'>");            }        
             print("</ul>");
 
             // Form pour noter le film

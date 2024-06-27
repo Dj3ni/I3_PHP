@@ -22,7 +22,7 @@
     </div>
     <div>
         <label for="password">Password: </label>
-        <input id = "password" type="text" name = "password">
+        <input id = "password" type="password" name = "password">
     </div>
     <div>
         <label for="avatar">Avatar: </label>

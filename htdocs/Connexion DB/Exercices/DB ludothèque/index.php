@@ -56,7 +56,7 @@
         print("<ul>");
         foreach ($array_jeux as $jeu){
             echo("<li><a href=''>".$jeu['Nom']."</a></li> <br>");
-            echo("<img src ='./uploads/". $jeu['Image']."' alt = 'photo du jeu'>");
+            echo("<img src ='./uploads/". $jeu['Image']."' alt = '".$jeu['Nom']."'>");
         }        
         print("</ul>");
         
