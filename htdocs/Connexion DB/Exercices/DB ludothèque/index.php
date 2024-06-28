@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exe ludo</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/img/style.css">
 </head>
 <body>
     <?php
@@ -49,16 +50,23 @@
         // 4. Lancer la requête
         $stmt ->execute();
         // 5. Obtenir le résultat et le mettre dans un array ( ici liste de jeux)
-        $array_jeux = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $arrayDerniersJeux = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         // 6. Afficher les données de manière choisie
         // var_dump($array_jeux);
-        print("<ul>");
-        foreach ($array_jeux as $jeu){
-            echo("<li><a href=''>".$jeu['Nom']."</a></li> <br>");
-            echo("<img src ='./uploads/". $jeu['Image']."' alt = '".$jeu['Nom']."'>");
-        }        
-        print("</ul>");
+        foreach ($arrayDerniersJeux as $jeu){
+            echo(
+                "<div class='col'>
+                    <div class='card' style='width: 20rem;'>
+                        <img src='./uploads/". $jeu['Image']."' class='card-img-top' alt='".$jeu['Nom']."'>
+                        <div class='card-body'>
+                            <h5 class='card-title'>".$jeu['Nom']."</h5>
+                            <p class='card-text'>".$jeu['Description']."</p>
+                            <a href='#' class='btn btn-primary'>More</a>            
+                        </div>
+                    </div>
+                </div>");
+        } 
         
         ?>
 

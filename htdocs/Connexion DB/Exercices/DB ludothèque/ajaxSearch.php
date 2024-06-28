@@ -12,15 +12,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajax Search</title>
     <script src="./Traitements Formulaires/ajaxSearch.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/img/style.css">
 </head>
 <body>
     <?php
+    include("./checkSession.php");
     include("nav.php");
     ?>
-    <form action="" method="post" id = "formHTML">
+    <form id = "formHTML">
     <input type="text" id ="termeRecherche" name = "termeRecherche">
     <button id = "btnSearch">Rechercher</button>
     </form>
+
+    <div id="divJeux">
+        Ici on affichera le résultat de la recherche
+    </div>
     
 </body>
 </html>

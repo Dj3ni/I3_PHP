@@ -51,4 +51,6 @@ include("../config.php");
 // Encoder le tableau en JSON
 
 $tableauJSON = json_encode($arrayJeux);
-// print($tableauJSON);
+print($tableauJSON);
+
+?>
