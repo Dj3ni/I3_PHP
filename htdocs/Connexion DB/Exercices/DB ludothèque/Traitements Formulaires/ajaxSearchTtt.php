@@ -7,7 +7,7 @@ $terme = $_POST["termeRecherche"];
 // connecter à la DB et obtenir les films correcpondants
 
 // Pour connecter à la database:
-include("../config.php");
+include("../PagesSite/config.php");
 
         // 1. Obtenir le terme de recherche du formulaire
         $recherche = $_POST["termeRecherche"];

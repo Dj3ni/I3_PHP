@@ -10,19 +10,19 @@
 <body>
 
 <nav>
-    <a href="../index.php">Home</a>
-    <a href="../LudoInsert.php">Ajouter un jeu</a>
-    <a href="../LudoSearch.php">Chercher un jeu</a>          
+    <a href="../PagesSite/index.php">Home</a>
+    <a href="../PagesSite/LudoInsert.php">Ajouter un jeu</a>
+    <a href="../PagesSite/LudoSearch.php">Chercher un jeu</a>          
         
 </nav>
 
     <?php
-    include ("../checkSession.php");
+    include ("../PagesSite/checkSession.php");
 
     // var_dump($_POST); //pour debug 
 
     // Pour connecter à la database:
-    include("../config.php");
+    include("../PagesSite/config.php");
     
             // 1. Obtenir le terme de recherche du formulaire
             $recherche = $_POST["terme"];
@@ -38,7 +38,7 @@
                 print("<h3>Oops: Problème de connexion à la DB</h3>");
                     // Afficher un image et un lien pour revenir en arrière.
                 print("<img src =''>");
-                print("<a href = '../index.php'>Retour à l'accueil</a>");
+                print("<a href = '../PagesSite/index.php'>Retour à l'accueil</a>");
                 // var_dump($e->getMessage());// commenter quand en production, uniquement pour debug ( revient au même qu'un tableau orange)
                 die("");// arrête le script
             }        

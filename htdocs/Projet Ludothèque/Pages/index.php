@@ -43,8 +43,10 @@ Iusto debitis illo ad modi corrupti neque ducimus repellendus adipisci sed, aspe
             }
 
             // 2. Créer la requête
-
-            $sql = "SELECT * FROM projetjeux ORDER BY id DESC LIMIT 3";
+                // PC maison
+            // $sql = "SELECT * FROM projetjeux ORDER BY id DESC LIMIT 3";
+                // PC école
+                $sql = "SELECT * FROM jeux ORDER BY id DESC LIMIT 3";
 
             // 3. Préparer
 

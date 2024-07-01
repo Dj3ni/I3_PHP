@@ -36,7 +36,13 @@ include ("../Templates/header.php");
     } 
 
     // 3. Une requête de recherche par fragments (on ne peut pas se permettre de faire une recherche en termes exacts!)
-    $sql = "SELECT * FROM projetjeux WHERE Nom LIKE '%".$search."%'";
+    
+    // PC maison
+    // $sql = "SELECT * FROM projetjeux WHERE Nom LIKE '%".$search."%'";
+
+    // Pc école
+    $sql = "SELECT * FROM jeux WHERE Nom LIKE '%".$search."%'";
+
     
     // 4. Préparer la requête 
     $stmt = $cnx->prepare($sql);

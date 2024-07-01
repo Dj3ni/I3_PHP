@@ -1,5 +1,5 @@
 .affiche{
-    max-width: 100px;    
+    max-width: 400px;    
 }
 
 .card{
@@ -9,4 +9,16 @@
 
 .card-img{
     vertical-align: middle;
+}
+
+nav a img{
+    max-width: 50px;
+}
+
+button{
+    margin:5px;
+}
+
+select{
+    margin: 5px;    
 }

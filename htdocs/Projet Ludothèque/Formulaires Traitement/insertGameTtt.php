@@ -59,8 +59,12 @@ include ("../Templates/header.php");
             $descript = $_POST['descript'];
 
         // Une requête du type Insert
+            // Pc maison
+        // $sql = "INSERT INTO projetjeux (id, NOM, Age, Nbr_joueurs_min,Nbr_joueurs_max,Duree,Description,Image) VALUES (null, :titre, :ageMin, :joueursMin, :joueursMax,:duree,:descript,:image)";
+            // PC école
+        $sql = "INSERT INTO jeux (id, NOM, Age, Nbr_joueurs_min,Nbr_joueurs_max,Duree,Description,Image) VALUES (null, :titre, :ageMin, :joueursMin, :joueursMax,:duree,:descript,:image)";
 
-        $sql = "INSERT INTO projetjeux (id, NOM, Age, Nbr_joueurs_min,Nbr_joueurs_max,Duree,Description,Image) VALUES (null, :titre, :ageMin, :joueursMin, :joueursMax,:duree,:descript,:image)";
+
 
 
         // Préparer la requête
