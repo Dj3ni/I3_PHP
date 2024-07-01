@@ -4,10 +4,10 @@
 $terme = $_POST["termeRecherche"];
 // print($terme);
 
-// connecter à la DB et obtenir les films correcpondants
+// connecter à la DB et obtenir les jeux correspondants
 
 // Pour connecter à la database:
-include("../PagesSite/config.php");
+include("../config.php");
 
         // 1. Obtenir le terme de recherche du formulaire
         $recherche = $_POST["termeRecherche"];

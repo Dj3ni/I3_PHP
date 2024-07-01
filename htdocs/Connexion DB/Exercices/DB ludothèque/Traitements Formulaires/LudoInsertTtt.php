@@ -9,15 +9,15 @@
 </head>
 <body>
 <nav>
-    <a href="../PagesSite/index.php">Home</a>
-    <a href="../PagesSite/LudoInsert.php">Ajouter un jeu</a>
-    <a href="../PagesSite/LudoSearch.php">Chercher un jeu</a>          
+    <a href="../index.php">Home</a>
+    <a href="../LudoInsert.php">Ajouter un jeu</a>
+    <a href="../LudoSearch.php">Chercher un jeu</a>          
         
 </nav>
     
 <?php
 
-include ("../PagesSite/checkSession.php");
+include ("../checkSession.php");
     // var_dump($_POST); //pour debug 
     // var_dump($_FILES); //pour debug, vérifier qu'on a bien reçu le fichier
 
@@ -26,7 +26,7 @@ include ("../PagesSite/checkSession.php");
     }
 
     // Pour connecter à la database:
-    include("../PagesSite/config.php");
+    include("../config.php");
 
     // Upload du fichier
 

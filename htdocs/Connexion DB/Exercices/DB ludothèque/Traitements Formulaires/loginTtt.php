@@ -10,16 +10,18 @@
 </head>
 <body>
 <nav>
-    <a href="../PagesSite/login.php">Login</a>
-    <a href="../PagesSite/inscription.php">Inscription</a>         
+    <a href="../login.php">Login</a>
+    <a href="../inscription.php">Inscription</a>
+    <a href="../index.php"></a>         
 </nav>
     
 <?php
     
-    include("../PagesSite/config.php");
+    include("../config.php");
 
     // démarrer la session
     session_start();
+    var_dump($_POST);
 
     // 1. Récupérer les données
         $email = $_POST["email"];
@@ -36,7 +38,7 @@
         print("<h3>Oops: Problème de connexion à la DB</h3>");
             // Afficher un image et un lien pour revenir en arrière.
         print("<img src =''>");
-        print("<a href = '../PagesSite/index.php'>Retour à l'accueil</a>");
+        print("<a href = '../index.php'>Retour à l'accueil</a>");
         var_dump($e->getMessage());// commenter quand en production, uniquement pour debug ( revient au même qu'un tableau orange)
         die("");// arrête le script
     } 
@@ -52,21 +54,21 @@
         // Executer
         $stmt->execute();
         //  Récupérer résultat
-        $arrayResultat = $stmt->fetchAll(PDO::FETCH_ASSOC);        
-        if(!empty($arrayResultat)){
-            // Si utilisateur existe:
+        $arrayResultat = $stmt->fetchAll(PDO::FETCH_ASSOC);  
+        
+        if(!empty($arrayResultat)){ // Si utilisateur existe:
+            
         // obtenir le pwd de la DB
         $passwordHachedDB = $arrayResultat[0]["Password"];
             // obtenir le nom de l'utilisateur.
         $nomUtilisateur = $arrayResultat[0]['Pseudo'];
         // var_dump($nomUtilisateur);
-        $idUser = $arrayResultat[0]["id"];
-        
+        $idUser = $arrayResultat[0]["id"];        
 
             if(password_verify($password, $passwordHachedDB) == false){
                 // password pas bon:
                 print("Utilisateur ou mot de passe incorrect<br>");
-                print("<a href='../PagesSites/login.php'>Se connecter</a>");
+                print("<a href='../login.php'>Se connecter</a>");
                 die();
             }
             else{
@@ -78,15 +80,15 @@
                 // die(); //pour debug
                 $_SESSION["idUser"] = $idUser;
 
-                header("location:../PagesSite/index.php"); // redirection vers page d'accueil.
+                header("location:../index.php"); // redirection vers page d'accueil.
             }
             
         }
             // Si l'utilisateur n'existe pas
         else{
             print("Utilisateur inconnu");
-            print("<a href='../PagesSite/inscription.php'>S'inscrire</a>");
-            print("<a href='../PagesSite/login.php'>Se connecter</a>");
+            print("<a href='../inscription.php'>S'inscrire</a>");
+            print("<a href='../login.php'>Se connecter</a>");
         }
 
 ?>

@@ -1,12 +1,12 @@
 const btnSearch = document.getElementById("btnSearch");
 const inputSearch = document.getElementById("termeRecherche");
 const FORM_HTML = document.getElementById("formHTML");
-const DIV_FILMS = document.getElementById("divJeux");
+const DIV_JEUX = document.getElementById("divJeux");
 
 
 inputSearch.addEventListener("keyup",function(){
     // A chaque recherche on vide la div
-    DIV_FILMS.innerHTML = "";
+    DIV_JEUX.innerHTML = "";
 
     if (inputSearch.value.length === 0) {
         return;
@@ -25,10 +25,10 @@ inputSearch.addEventListener("keyup",function(){
             console.log(arrayGAMES);
             
             arrayGAMES.forEach(objetJeu => {
-                // DIV_FILMS.innerHTML += objetJeu.titre; affiche juste les titres
+                // DIV_JEUX.innerHTML += objetJeu.titre; affiche juste les titres
 
                 // Afiche le résultat dans des cartes
-                DIV_FILMS.innerHTML += 
+                DIV_JEUX.innerHTML += 
                 
                 `<div class='card mb-3' style='max-width: 540px;'> <div class='row no-gutters'>
                     <div class='col-md-4'>

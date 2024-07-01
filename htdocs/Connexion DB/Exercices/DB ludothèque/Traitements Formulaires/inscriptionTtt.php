@@ -14,8 +14,8 @@
 </nav>
     
 <?php
-include ("../PagesSite/checkSession.php");
-include("../PagesSite/config.php");
+include ("../checkSession.php");
+include("../config.php");
 
     // 1. Récupérer les données du formulaire
     $pseudo = $_POST["pseudo"];
@@ -52,7 +52,7 @@ include("../PagesSite/config.php");
         print("<h3>Oops: Problème de connexion à la DB</h3>");
             // Afficher un image et un lien pour revenir en arrière.
         print("<img src =''>");
-        print("<a href = '../PagesSite/index.php'>Retour à l'accueil</a>");
+        print("<a href = '../index.php'>Retour à l'accueil</a>");
         var_dump($e->getMessage());// commenter quand en production, uniquement pour debug ( revient au même qu'un tableau orange)
         die("");// arrête le script
     } 
@@ -72,7 +72,7 @@ include("../PagesSite/config.php");
 
     if (!empty($arrayResultat)){ // idem que count(array) !== 0
         echo("Cette adresse e-mail est déjà prise");
-        echo("<a href='../PagesSite/login.php'></a>");
+        echo("<a href='../login.php'></a>");
         die();
     }
 
@@ -96,7 +96,7 @@ include("../PagesSite/config.php");
 
         // 7.Rediriger vers page d'accueil
 
-        header("location: ../PagesSite/index.php");
+        header("location: ../index.php");
 
     }
 
