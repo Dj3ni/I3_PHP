@@ -3,18 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=t, initial-scale=1.0">
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <title>Login</title>
 </head>
 <body>
 <nav>
-    <a href="../index.php">Home</a>
-    <a href="../LudoInsert.php">Ajouter un jeu</a>
-    <a href="../LudoSearch.php">Chercher un jeu</a>
-    <a href="login.php">Login</a>
-    <a href="inscription.php">Inscription</a>          
-        
+    <a href="../PagesSite/login.php">Login</a>
+    <a href="../PagesSite/inscription.php">Inscription</a>         
 </nav>
     
 <?php
@@ -69,7 +66,7 @@
             if(password_verify($password, $passwordHachedDB) == false){
                 // password pas bon:
                 print("Utilisateur ou mot de passe incorrect<br>");
-                print("<a href='../PagesSite/login.php'>Se connecter</a>");
+                print("<a href='../PagesSites/login.php'>Se connecter</a>");
                 die();
             }
             else{
@@ -88,114 +85,9 @@
             // Si l'utilisateur n'existe pas
         else{
             print("Utilisateur inconnu");
-            print("<a href='../PagesSite/inscription.php>S'inscrire</a>");
-            print("<a href='../PagesSite/login.php>Se connecter</a>");
+            print("<a href='../PagesSite/inscription.php'>S'inscrire</a>");
+            print("<a href='../PagesSite/login.php'>Se connecter</a>");
         }
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-    
 
 ?>
 </body>

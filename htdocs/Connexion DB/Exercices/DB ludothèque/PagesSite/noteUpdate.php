@@ -18,7 +18,7 @@ catch (Exception $e){
     print("<h3>Oops: Problème de connexion à la DB</h3>");
         // Afficher un image et un lien pour revenir en arrière.
     print("<img src =''>");
-    print("<a href = '../index.php'>Retour à l'accueil</a>");
+    print("<a href = './index.php'>Retour à l'accueil</a>");
     // var_dump($e->getMessage());// commenter quand en production, uniquement pour debug ( revient au même qu'un tableau orange)
     die("");// arrête le script
 }

@@ -9,12 +9,8 @@
 </head>
 <body>
 <nav>
-    <a href="../index.php">Home</a>
-    <a href="../LudoInsert.php">Ajouter un jeu</a>
-    <a href="../LudoSearch.php">Chercher un jeu</a>
     <a href="../login.php">Login</a>
-    <a href="../inscription.php">Inscription</a>          
-        
+    <a href="../inscription.php">Inscription</a>
 </nav>
     
 <?php
