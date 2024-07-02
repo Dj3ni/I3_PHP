@@ -23,7 +23,6 @@ catch (Exception $e){
     die("");// arrête le script
 }
 
-
 if($newNote === true){
     $sql = "INSERT INTO note(id, Valeur, idUser, idJeu) VALUES (null, :valeur, :idUser, :idJeu) ";
 }

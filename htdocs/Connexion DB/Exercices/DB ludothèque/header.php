@@ -1,9 +1,6 @@
 <header>
     <?php
-    include ("checkSession.php");
-    include("nav.php");
-    print("")
-
-
+    include ("./checkSession.php");
+    include("./nav.php");
     ?>
 </header>

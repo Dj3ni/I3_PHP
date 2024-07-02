@@ -35,7 +35,7 @@ inputSearch.addEventListener("keyup",function(){
                     <img src='./uploads/${objetJeu.Image}' class='card-img' alt='${objetJeu.Nom}'></div>
                         <div class='col-md-8'>
                         <div class='card-body'>
-                            <h5 class='card-title'><a href="../PagesSite/ficheJeu.php?idJeu=${objetJeu.id}">${objetJeu.Nom}</a></h5>
+                            <h5 class='card-title'><a href="ficheJeu.php?idJeu=${objetJeu.id}">${objetJeu.Nom}</a></h5>
                             <p class='card-text'>${objetJeu.Description}</p>
                         </div>
                         </div>
@@ -44,7 +44,7 @@ inputSearch.addEventListener("keyup",function(){
             });
         }
     }
-    xhr.open("POST", "../Traitements Formulaires/ajaxSearchTtt.php");
+    xhr.open("POST", "./Traitements Formulaires/ajaxSearchTtt.php");
     xhr.send(formData);// on envoie l'objet formData
     
 })

@@ -7,13 +7,14 @@
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- feuille css -->
-    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
     <?php
         // démarrer la session
-        include ("./checkSession.php");
-        include("./nav.php");
+        include("./header.php");
+        // include ("./checkSession.php");
+        
 
         ?>
     <header>
@@ -55,19 +56,47 @@
         // 6. Afficher les données de manière choisie
         // var_dump($array_jeux);
         foreach ($arrayDerniersJeux as $jeu){
-            echo(
-                "<div class='col'>
+             // Afficher dans une carte:
+            echo("<div class='col'>
                     <div class='card' style='width: 20rem;'>
                         <img src='./uploads/". $jeu['Image']."' class='card-img-top' alt='".$jeu['Nom']."'>
                         <div class='card-body'>
                             <h5 class='card-title'>".$jeu['Nom']."</h5>
                             
-                            <a href='./' class='btn btn-primary'>Plus d'infos</a>            
+                            <a href='ficheJeu.php?idJeu=".$jeu['id']."' class='btn btn-primary'>Plus d'infos</a>            
                         </div>
                     </div>
                 </div>");
+        
+                        // <p class='card-text'>".$jeu['Description']."</p>
+
+                        // afficher dans caroussel
+
+                //         echo("<div id='carouselExampleIndicators' class='carousel slide' data-ride='carousel'>
+                //         <ol class='carousel-indicators'>
+                //             <li data-target='#carouselExampleIndicators' data-slide-to='0' class='active'></li>
+                //             <li data-target='#carouselExampleIndicators' data-slide-to='1'></li>
+                //             <li data-target='#carouselExampleIndicators' data-slide-to='2'></li>
+                //         </ol>
+                //         <div class='carousel-inner'>");
+                // echo("<div class='carousel-item'>
+                //         <img src='./uploads/".$jeu['Image']."' alt='".$jeu['Nom']."'>
+                //         <div class='carousel-caption d-none d-md-block'>
+                //             <h5>".$jeu['Nom']."</h5>    
+                //             <a href='ficheJeu.php?idJeu=".$jeu['id']."' class='btn btn-primary'>Plus d'infos</a> 
+                //         </div>
+                //         </div>");
+                // echo("</div>
+                //         <a class='carousel-control-prev' href='#carouselExampleIndicators' role='button' data-slide='prev'>
+                //             <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+                //             <span class='sr-only'>Previous</span>
+                //         </a>
+                //         <a class='carousel-control-next' href='#carouselExampleIndicators' role='button' data-slide='next'>
+                //             <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                //             <span class='sr-only'>Next</span>
+                //         </a>
+                //         </div>");
         } 
-        // <p class='card-text'>".$jeu['Description']."</p>
         
         ?>
 

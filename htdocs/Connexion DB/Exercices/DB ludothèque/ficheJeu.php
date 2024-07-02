@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- feuille css -->
     <link rel="stylesheet" href="./assets/style.css">
-    >
     <!-- Plugin étoiles -->
     <script src="https://jsuites.net/v4/jsuites.js"></script>
     <link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css" />
     <!-- Script Notes -->
     <script src="./js/rating.js" defer></script>
+    <script src="./js/cart.js" defer></script>
     
 </head>
 
@@ -86,12 +86,13 @@
     print("<img src ='./uploads/" . $jeu["Image"] . "'class = 'affiche'</img><br>");
 
         // Contrôles pour le panier
-    print("<select id ='quantity' data-idJeu = '". $idJeu ."'>");
+    print("<select id ='selectQuantity' data-idJeu = '". $idJeu ."'>");
     for($i = 0; $i < 50; $i++){
         print("<option value = ".$i.">".$i."<option>");
     }
     print("</select>");
     print("<button id = 'btnCart'>🛒</button>");
+    print("<button id = 'btnClearCart'>🚮</button>");
 
     // Contenu de la page
 
