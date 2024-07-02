@@ -10,6 +10,8 @@
     
     <!-- feuille css -->
     <link rel="stylesheet" href="./assets/style.css">
+    <!--Script JS  -->
+    <script src="./js/checkout.js" defer></script>
 </head>
 <body>
 <?php
@@ -54,6 +56,10 @@ $tabJeux = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // récupérer le panier de la session
 
 $cart = $_SESSION["cart"];
+
+print("<div>Vider le panier: 
+    <button id = 'btnClearCart'>🚮</button>
+    </div><br>");
 
 foreach ($tabJeux as $jeu){
     echo(

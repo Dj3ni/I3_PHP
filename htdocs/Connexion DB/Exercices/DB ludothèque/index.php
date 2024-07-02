@@ -12,10 +12,9 @@
 <body>
     <?php
         // démarrer la session
-        include("./header.php");
-        // include ("./checkSession.php");
+        include("./nav.php");
+        // include("./checkSession.php");
         
-
         ?>
     <header>
     <h1>Bienvenue
@@ -25,6 +24,12 @@
     </h1>
     </header>
     <main>
+        <h3>About</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, blanditiis expedita repellendus consectetur consequuntur, alias deleniti excepturi iure rem amet inventore aut minus similique qui dignissimos explicabo ipsa quam assumenda.
+        Velit nisi minima vitae sunt nulla expedita assumenda perspiciatis dolores. Amet corporis illum ipsam architecto illo vel, nulla ut dolor saepe fugit delectus provident obcaecati a iure, eum magni doloribus?
+        Dolor commodi modi in, nostrum odit quae aspernatur pariatur ad fuga architecto voluptatem aliquam sunt explicabo molestias earum aperiam ea illo veritatis, beatae quaerat at. Pariatur temporibus eos architecto qui.
+        Autem porro a ut quos tenetur rem, in quas. Minus in sequi similique, aperiam nostrum dignissimos beatae sit rerum cumque iure facere tempora accusamus veniam nobis asperiores excepturi ex. Laboriosam!
+        Tempore totam fugit eligendi nemo fugiat neque illo, ratione aut laborum perspiciatis id, expedita similique eius hic nam at voluptates cumque placeat omnis, impedit asperiores quos numquam! Alias, ullam laudantium?</p>
         <h3>Les 5 derniers jeux insérés</h3>
         <?php
         

@@ -17,8 +17,11 @@
         
 
         ?>
-    <h1>Ajouter un jeu</h1>
-    <form action="./Traitements Formulaires/LudoInsertTtt.php" method="post" enctype ="multipart/form-data">
+    <header><h1>Ajouter un jeu</h1></header>
+    <main>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores eveniet vitae vero veniam rerum. Numquam atque fugiat culpa sunt alias laborum, minus temporibus, velit consequatur obcaecati provident, inventore voluptatibus minima!
+    Nemo, placeat. Blanditiis amet dolore atque eaque cumque incidunt molestias harum magni, dicta debitis odio soluta, accusantium sit! Accusamus, eaque sequi nemo debitis rem perspiciatis id molestias provident sit maxime?</p>
+    <form action="./Traitements Formulaires/LudoInsertTtt.php" method="post" enctype ="multipart/form-data" class = "form-group">
         <fieldset>
         <legend>Ajouter un jeu</legend>
         <div>
@@ -53,6 +56,8 @@
         </fieldset>
         
     </form>
+
+    </main>
 
     
 </body>

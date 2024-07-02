@@ -1,12 +1,8 @@
 const btnCart = document.getElementById("btnCart");
 console.log(btnCart);
-const btnClearCart = document.getElementById("btnClearCart");
+
 const cartLink = document.getElementById("cartLink");
 console.log(cartLink);
-const btnCancel = document.getElementById("btnCancel");
-console.log(btnCancel);
-const CART_ARTICLE = document.getElementById("cartArticle");
-console.log(CART_ARTICLE);
 
 
 
@@ -51,16 +47,4 @@ btnCart.addEventListener("click", function(){
 
 })
 
-
-btnClearCart.addEventListener("click",function(){
-    // session_start()
-    // unset($_SESSION['panier']);
-    window.location.href = "./viderPanier.php";
-})
-
-// btnCancel.addEventListener("click",(event)=>{
-//     const CURRENT_DIV = event.target.
-    
-//     CART_ARTICLE.remove();
-// })
 

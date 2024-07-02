@@ -79,9 +79,11 @@
     // var_dump($noteUser);
 
 
-    print("<h1>" . $jeu["Nom"] . "</h1>");
-    print("<div>Moyenne des utilisateurs: " . (float)$jeuMoyenne["Moyenne"] . "/5
-        <div id = 'ratingStars' data-valeur ='" . $jeuMoyenne["Moyenne"] . "'>
+    print("<header><h1>" . $jeu["Nom"] . "</h1></header>");
+    echo("<main>");
+    echo("<article>");
+    print("<div>Moyenne des utilisateurs: " .( $jeuMoyenne === 0 ? (float)$jeuMoyenne["Moyenne"] . "/5" : "Pas de note").
+        "<div id = 'ratingStars' data-valeur ='" . $jeuMoyenne["Moyenne"] . "'>
         </div></div><br>");
     print("<img src ='./uploads/" . $jeu["Image"] . "'class = 'affiche'</img><br>");
 
@@ -92,7 +94,7 @@
     }
     print("</select>");
     print("<button id = 'btnCart'>🛒</button>");
-    print("<button id = 'btnClearCart'>🚮</button>");
+    
 
     // Contenu de la page
 
@@ -106,6 +108,8 @@
         "<div id = 'ratingUser' data-idJeu = '" . $idJeu . "' data-valeur ='" . ($noteUser ? $noteUser["Valeur"] : "") . "'>
             </div>
         </div>");
+    print("</article>");
+    print("</main>");
         
     ?>
 
