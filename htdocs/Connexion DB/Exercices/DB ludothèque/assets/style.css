@@ -18,32 +18,60 @@ main{
     padding: 15px;
 }
 
-main *{
+/* main *{
     margin: 0 auto;
-}
+} */
 
 h3{
     margin:15px;
 }
 
+article, form{
+    padding: 15px;
+    margin: auto;
+    width: 80%;
+    height:fit-content;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+article button{
+    margin: 15px;
+}
 
 /* affichage images */
 .affiche{
     max-width: 400px;    
 }
 
+.carousel {
+    max-height: 200px;
+}
+
+.carousel-item img{
+    width: 100%;
+    height: 100%;
+}
 
 
 /* CSS supp cartes */
 .card{
-    display: flex;
-    align-items: center;
+    margin: 15px;
 }
 
-.card-img{
+/* .card-img{
     vertical-align: middle;
-}
+}  */
 
+.cardArticle{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+}
 
 /* Boutons */
 button{
@@ -155,6 +183,8 @@ select{
 }
 
 
+
+
 /* dropdown nav */
 
 .dropdown .dropBtn{
@@ -202,7 +232,24 @@ select{
 
 /* Form */
 
-/* .form-group{
+form{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ae2012;
+}
 
-} */
+form * {
+    margin: 15px;
+}
+
+
+button{
+    display: block;
+    background-color: #9b2226;
+    color: #e9d8a6;
+    border-radius: 10px;
+    padding: 5px;
+    /* margin: auto; */
+    
+}
+
 

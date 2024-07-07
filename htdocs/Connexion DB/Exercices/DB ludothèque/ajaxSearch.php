@@ -23,10 +23,17 @@
     include("./checkSession.php");
     include("./nav.php");
     ?>
-    <form id = "formHTML">
+    <header>
+        <h1>Rechercher un jeu</h1>
+    </header>
+    <br>
+    <article>
+    <form id = "formHTML" class ="mb-3">
     <input type="text" id ="termeRecherche" name = "termeRecherche">
     <button id = "btnSearch">Rechercher</button>
     </form>
+
+    </article>
 
     <div id="divJeux">
         Ici on affichera le résultat de la recherche

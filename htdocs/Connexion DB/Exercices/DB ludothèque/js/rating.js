@@ -26,7 +26,7 @@
             let newNote = true;
 
             if (ratingUser.dataset.valeur === "") {
-                newNote = false; //Ce film est déjà noté par l'utilisateur
+                newNote = false; 
             }
             let xhr = new XMLHttpRequest();
 

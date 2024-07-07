@@ -13,74 +13,89 @@
     <!--Script JS  -->
     <script src="./js/checkout.js" defer></script>
 </head>
-<body>
+<body>   
+    <?php
+    include("./header.php");
+    ?>
+
+<header>
+    <h1>Votre panier</h1>
+</header>
+
 <?php
 
-include("./checkSession.php");
-include("./nav.php");
+// var_dump($_SESSION); //pour debug
 
-// var_dump($_SESSION['cart']);
-
-// Connexion à la DB
-include("./config.php");
-try{
-    $cnx = new PDO(DSN,USER_NAME,PASSWORD);
-    // var_dump($cnx);
-}
-catch (Exception $e){
-        // Expliquer ce qui se passe
-    print("<h3>Oops: Problème de connexion à la DB</h3>");
-        // Afficher un image et un lien pour revenir en arrière.
-    print("<img src =''>");
-    print("<a href = './index.php'>Retour à l'accueil</a>");
-    var_dump($e->getMessage());// commenter quand en production, uniquement pour debug ( revient au même qu'un tableau orange)
-    die(""); //arrête le script
+if(!in_array("cart", $_SESSION)){
+    echo("
+    <article>
+        <p>Votre panier est vide</p>
+        <a href ='./index.php'>Retourner à la page d'accueil</a>
+    </article>");
 }
 
-// Création de la requête
-        // Je veux récupérer tous les id des jeux ( ils sont les clés de mon panier)
-        $ids = array_keys($_SESSION['cart']);
-        // var_dump($ids);
-        // Je les sépare en différents strings
-        $stringIds = implode(",",$ids);
-        // print($stringIds);
+else{
+        // Connexion à la DB
+    include("./config.php");
+    try{
+        $cnx = new PDO(DSN,USER_NAME,PASSWORD);
+        // var_dump($cnx);
+    }
+    catch (Exception $e){
+            // Expliquer ce qui se passe
+        print("<h3>Oops: Problème de connexion à la DB</h3>");
+            // Afficher un image et un lien pour revenir en arrière.
+        print("<img src =''>");
+        print("<a href = './index.php'>Retour à l'accueil</a>");
+        var_dump($e->getMessage());// commenter quand en production, uniquement pour debug ( revient au même qu'un tableau orange)
+        die(""); //arrête le script
+    }
 
-$sql = "SELECT * FROM jeux WHERE jeux.id IN (". $stringIds .")";
+    // Création de la requête
+            // Je veux récupérer tous les id des jeux ( ils sont les clés de mon panier)
+            $ids = array_keys($_SESSION['cart']);
+            // var_dump($ids);
+            // Je les sépare en différents strings
+            $stringIds = implode(",",$ids);
+            // print($stringIds);
 
-$stmt = $cnx->prepare($sql);
-$stmt ->execute();
+    $sql = "SELECT * FROM jeux WHERE jeux.id IN (". $stringIds .")";
 
-$tabJeux = $stmt->fetchAll(PDO::FETCH_ASSOC);
-// var_dump($tabJeux);
+    $stmt = $cnx->prepare($sql);
+    $stmt ->execute();
 
-// récupérer le panier de la session
+    $tabJeux = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // var_dump($tabJeux);
 
-$cart = $_SESSION["cart"];
+    // récupérer le panier de la session
 
-print("<div>Vider le panier: 
-    <button id = 'btnClearCart'>🚮</button>
-    </div><br>");
+    $cart = $_SESSION["cart"];
 
-foreach ($tabJeux as $jeu){
-    echo(
-        "<div id= 'cartArticle' class='card mb-3' style='max-width: 540px;'> <div class='row no-gutters'>
-        <div class='col-md-4'>
-        <img src='./uploads/".$jeu["Image"]."' class='card-img' alt='".$jeu['Nom']."'></div>
-            <div class='col-md-8'>
-            <div class='card-body'>
-                <h5 class='card-title'><a href='ficheJeu.php?idJeu='".$jeu['id']."'>".$jeu['Nom']."</a></h5>
-                <div>
-                    <label>Quantité: </label>
-                    <input type ='number' id = 'quantitycart' min='0' value ='".$cart[$jeu["id"]]."' >
-                    <button id ='btnCancel'>❌</button>
+    print("<div>Vider le panier: 
+        <button id = 'btnClearCart'>🚮</button>
+        </div><br>");
+
+    foreach ($tabJeux as $jeu){
+        echo(
+            "<div id= 'cartArticle' class='card mb-3' style='max-width: 540px;'> <div class='row no-gutters'>
+            <div class='col-md-4'>
+            <img src='./uploads/".$jeu["Image"]."' class='card-img' alt='".$jeu['Nom']."'></div>
+                <div class='col-md-8'>
+                <div class='card-body'>
+                    <h5 class='card-title'><a href='ficheJeu.php?idJeu='".$jeu['id']."'>".$jeu['Nom']."</a></h5>
+                    <div>
+                        <label>Quantité: </label>
+                        <input type ='number' id = 'quantitycart' min='0' value ='".$cart[$jeu["id"]]."' >
+                        <button id ='btnCancel'>❌</button>
+                    </div>
                 </div>
-            </div>
-            </div>
-            </div>
-            
-        </div>"  
-    );
-    
+                </div>
+                </div>
+                
+            </div>"  
+        );
+        
+    }
 }
 
 ?>
