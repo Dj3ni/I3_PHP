@@ -1,7 +1,7 @@
 <?php
 include("./Animal.php");
 
-class Chien{
+class Chien extends Animal{
     public string $nom;
     public string $race;
     public function __construct(string $nom, string $race){

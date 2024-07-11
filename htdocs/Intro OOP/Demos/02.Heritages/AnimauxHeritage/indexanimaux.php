@@ -9,12 +9,31 @@
     <?php
     include_once("./Chien.php");
     include_once("./Chat.php");
+    include_once("./Animal.php");
+    
 
 
-    $a1 = new Animal("Bill", "Cocker");
-    $a1->affiche();
+    // $a1 = new Animal("Bill", "Cocker");
+    // $a1->affiche();
 
+    $d1 = new Chien("Bill", "Cocker");
     $c1 = new Chat("Felix", "Européen");
+    var_dump($c1);
+    $d1->communique();
+    $c1->communique();
+
+    function animalCommunique(Animal $x){
+        echo("<h2>");
+        $x->communique();
+        echo("</h2>");
+    }
+
+    animalCommunique($d1);
+
+    $animaux = [$c1,$d1];
+    foreach($animaux as $animal){
+        $animal->communique();
+    }
 
     ?>
     

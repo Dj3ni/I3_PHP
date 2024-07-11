@@ -1,6 +1,6 @@
 <?php
 
-class Animal{
+abstract class Animal{
     public string $nom;
     public string $race;
     
@@ -9,9 +9,7 @@ class Animal{
         $this->race = $race;
     }
 
-    public function communique(): void{
-        print("<br>");
-    }
+    abstract public function communique(): void;
 
     public function affiche():void{
         print("<br> Je m'appelle ".$this->nom." et suis un chat de la race ". $this->race);
