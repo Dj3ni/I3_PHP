@@ -1,0 +1,255 @@
+body{
+    margin: 0;
+}
+
+/* Header */
+header{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin:10px 10px 0 10px;
+}
+
+/* main */
+
+main{
+    padding: 15px;
+}
+
+/* main *{
+    margin: 0 auto;
+} */
+
+h3{
+    margin:15px;
+}
+
+article, form{
+    padding: 15px;
+    margin: auto;
+    width: 80%;
+    height:fit-content;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+article button{
+    margin: 15px;
+}
+
+/* affichage images */
+.affiche{
+    max-width: 400px;    
+}
+
+.carousel {
+    max-height: 200px;
+}
+
+.carousel-item img{
+    width: 100%;
+    height: 100%;
+}
+
+
+/* CSS supp cartes */
+.card{
+    margin: 15px;
+}
+
+/* .card-img{
+    vertical-align: middle;
+}  */
+
+.cardArticle{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+}
+
+/* Boutons */
+button{
+    margin:5px;
+}
+
+select{
+    margin: 5px;    
+}
+
+
+/* nav */
+
+.nav-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li{
+    margin-left: 20px;
+}
+
+.nav-links a{
+    color: #2196F3;
+    text-decoration: none;
+}
+
+.div-nav{
+    padding: 5px 5px 0 5px;
+}
+
+
+
+/* Icone panier */
+
+.cart-container{
+    position: relative;
+    width: 40px;
+    height:40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.cart-logo img{
+    max-width: 100%;
+    max-height: 100%;
+    /* border-radius: 50%; */
+}
+
+#cartLink{
+    position: absolute;
+    /* Décalage du badge par rapport à l'icone */
+    top:-5px; 
+    right: -10px;
+    background-color:#2196F3 ;
+    color: white;
+    border-radius: 50%;
+    padding: 5px ;
+    font-size: 12px;
+}
+
+/* logo */
+
+.logo-site{
+    position: relative;
+    width: 50px;
+    height:40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+}
+
+.logo-site img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Avatar */
+
+.avatar img{
+    max-width: 100%;
+    max-height: 100%; 
+    border-radius: 50%;
+}
+.avatar{
+    position: relative;
+    width: 40px;
+    height:40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+}
+
+.user-name{
+    position: absolute;
+    /* bottom:-5px;
+    right: -10px;*/
+}
+
+
+
+
+/* dropdown nav */
+
+.dropdown .dropBtn{
+    font-size: 14px;  
+    border: none;
+    outline: none;
+    color: #2196F3;
+    padding: 10px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content:hover{
+    background-color: #ddd;
+}
+
+.nav-links li:hover, .user-name:hover .dropBtn{
+    background-color: #ddd;
+}
+
+.arrow{
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid black;
+    margin: 5px;
+}
+
+/* Form */
+
+form{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ae2012;
+}
+
+form * {
+    margin: 15px;
+}
+
+
+button{
+    display: block;
+    background-color: #9b2226;
+    color: #e9d8a6;
+    border-radius: 10px;
+    padding: 5px;
+    /* margin: auto; */
+    
+}
+
+
