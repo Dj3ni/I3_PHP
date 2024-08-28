@@ -1,8 +1,8 @@
 <?php
 
-include("../connexion/configDB.php");
+include("./connexion/configDB.php");
 
-class filmManager {
+class FilmManager {
 
     private PDO $cnx;
 

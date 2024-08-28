@@ -7,21 +7,21 @@
 </head>
 <body>
     <?php
-
-    include_once("../classes/FilmManager.php");
-    include_once("../classes/Films.php");
+    include("../vendor/autoload.php");
+    // include_once("../classes/FilmManager.php");
+    // include_once("../classes/Films.php");
 
     var_dump($_POST);
 
-    $fm = new filmManager();
-    var_dump($fm);
+    $fm = new FilmManager();
+    // var_dump($fm);
 
     $title = $_POST["title"];
     $duration = $_POST["duration"];
     $synopsis = $_POST["synopsis"];
     $dateParution = new DateTime($_POST["dateParution"]);
     
-    $film = new film([
+    $film = new Film([
         "title"=> $title,
         "duration"=> $duration,
         "synopsis"=> $synopsis,
