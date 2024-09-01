@@ -1,9 +1,14 @@
 {# Ici, on va chercher le code de base html, qui génère une page html de base #}
 {% extends 'base.html.twig' %}
 
-{# {% block title %}Hello HomeController!{% endblock %}
+{% block title %}Recettes{% endblock %}
 
 {# Pour que du contenu s'affiche sur la page, c'est entre ces deux blocs #}
 {% block body %}
+<ul>
+    <li>
+        <a href="{{url('recipe.show', {id: 32, slug : 'pates-bolognese'})}}">Pâtes Bolognese</a>
+    </li>
+</ul>
 
 {% endblock %}

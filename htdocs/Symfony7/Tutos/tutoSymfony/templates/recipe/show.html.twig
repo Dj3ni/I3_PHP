@@ -1,9 +1,10 @@
 {# Ici, on va chercher le code de base html, qui génère une page html de base #}
 {% extends 'base.html.twig' %}
 
-{# {% block title %}Hello HomeController!{% endblock %}
+{% block title %}Recettes : {{slug}}{% endblock %}
 
 {# Pour que du contenu s'affiche sur la page, c'est entre ces deux blocs #}
 {% block body %}
+    {{slug}} {{person.firstname ~ person.lastname}}
 
 {% endblock %}
