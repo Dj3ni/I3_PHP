@@ -5,10 +5,14 @@
 
 {# Pour que du contenu s'affiche sur la page, c'est entre ces deux blocs #}
 {% block body %}
+<p>Il y a {{totalDuration}} minutes de recette sur le site!</p>
 <ul>
+    {% for recipe in recipes %}
+    
     <li>
-        <a href="{{url('recipe.show', {id: 32, slug : 'pates-bolognese'})}}">Pâtes Bolognese</a>
+        <a href="{{path('recipe.show', {id: recipe.id, slug : recipe.slug})}}">{{recipe.title}}</a>
     </li>
+    {% endfor %}
 </ul>
 
 {% endblock %}

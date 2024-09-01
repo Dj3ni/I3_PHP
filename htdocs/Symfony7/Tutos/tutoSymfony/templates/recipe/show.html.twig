@@ -1,10 +1,12 @@
 {# Ici, on va chercher le code de base html, qui génère une page html de base #}
 {% extends 'base.html.twig' %}
 
-{% block title %}Recettes : {{slug}}{% endblock %}
+{% block title %}Recette: {{recipe.title}}{% endblock %}
 
 {# Pour que du contenu s'affiche sur la page, c'est entre ces deux blocs #}
 {% block body %}
-    {{slug}} {{person.firstname ~ person.lastname}}
+    <h1>{{ recipe.title}}</h1>
+    <p>Preparation: {{recipe.duration}} minutes</p>
+    <p>{{ recipe.description | nl2br}}</p>
 
 {% endblock %}
