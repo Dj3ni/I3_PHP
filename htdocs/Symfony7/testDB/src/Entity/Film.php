@@ -40,7 +40,7 @@ class Film
     /**
      * @var Collection<int, exemplaire>
      */
-    #[ORM\OneToMany(targetEntity: exemplaire::class, mappedBy: 'film')]
+    #[ORM\OneToMany(targetEntity: Exemplaire::class, mappedBy: 'film', cascade:["persist", "remove"])]
     private Collection $exemplaires;
 
     public function __construct()
