@@ -108,10 +108,9 @@ class MyFirstDBController extends AbstractController
         $repository = $em->getRepository(Film::class);
         $film = $repository->findOneBy(["duree" => 120]);
 
-        // 2. On effece le livre
+        // 2. On efface le livre
         $em->remove($film);
         $em->flush();
         dd();
     }
-
 }
