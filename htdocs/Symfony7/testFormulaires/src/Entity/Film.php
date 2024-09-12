@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Nullable;
 
 #[ORM\Entity(repositoryClass: FilmRepository::class)]
 class Film
@@ -46,9 +47,9 @@ class Film
     public function __construct($init)
     {
         $this-> hydrate($init);
-        $this->oeuvre = new ArrayCollection();
-        $this->casting = new ArrayCollection();
-        $this->exemplaires = new ArrayCollection();
+        // $this->oeuvre = new ArrayCollection();
+        // $this->casting = new ArrayCollection();
+        // $this->exemplaires = new ArrayCollection();
     }
 
     public function hydrate(array $init){
