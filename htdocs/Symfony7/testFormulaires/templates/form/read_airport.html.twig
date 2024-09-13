@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FormController!{% endblock %}
+
+{% block body %}
+
+
+<h1>Airports list</h1>
+<ul>
+{% for airport in airports %}
+    <li>{{airport.Code}} - {{airport.Name}}
+        <a href="{{path ('airport_update', {id:airport.id })}}">Update</a>
+        <a href="{{path ('airport_delete', {id:airport.id })}}">Delete</a>
+    </li>
+    
+{% endfor %}
+</ul>
+
+{% endblock %}

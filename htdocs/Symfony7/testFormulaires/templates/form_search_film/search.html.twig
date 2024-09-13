@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FormSearchFilmController!{% endblock %}
+
+{% block body %}
+
+{{form_start (form)}}
+
+{{form_row (form.titre)}}
+{{form_row (form.duree)}}
+
+<button type="submit">Search</button>
+{{form_end (form)}}
+
+{% endblock %}

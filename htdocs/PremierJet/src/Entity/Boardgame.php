@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\BoardgameRepository;
+use App\Trait\HydrateTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -10,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: BoardgameRepository::class)]
 class Boardgame
 {
+    use HydrateTrait;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -24,8 +26,9 @@ class Boardgame
     #[ORM\OneToMany(targetEntity: GameLibraryHistoric::class, mappedBy: 'boardgame')]
     private Collection $historics;
 
-    public function __construct()
+    public function __construct(array $init = [])
     {
+        $this->hydrate($init);
         $this->historics = new ArrayCollection();
     }
 

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use App\Trait\HydrateTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -10,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 class User
 {
+    use HydrateTrait;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -54,8 +56,9 @@ class User
     #[ORM\OneToMany(targetEntity: Event::class, mappedBy: 'userOrganisator', orphanRemoval: true)]
     private Collection $organizedEvents;
 
-    public function __construct()
+    public function __construct(array $init = [])
     {
+        $this->hydrate($init);
         $this->gameManagement = new ArrayCollection();
         $this->clubSubscriptions = new ArrayCollection();
         $this->eventSubscriptions = new ArrayCollection();

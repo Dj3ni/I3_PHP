@@ -3,11 +3,13 @@
 namespace App\Entity;
 
 use App\Repository\EventSubscriptionRepository;
+use App\Trait\HydrateTrait;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: EventSubscriptionRepository::class)]
 class EventSubscription
 {
+    use HydrateTrait;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -17,12 +19,17 @@ class EventSubscription
     private ?\DateTimeImmutable $dateSubscription = null;
 
     #[ORM\ManyToOne(inversedBy: 'eventSubscriptions')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?User $userSubscriptor = null;
 
     #[ORM\ManyToOne(inversedBy: 'subscriptions')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Event $eventSubscripted = null;
+
+    public function __construct(array $init = [])
+    {
+        $this->hydrate($init);
+    }
 
     public function getId(): ?int
     {

@@ -4,10 +4,13 @@ namespace App\Entity;
 
 use App\Repository\AddressRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Trait\HydrateTrait;
 
 #[ORM\Entity(repositoryClass: AddressRepository::class)]
 class Address
 {
+    use HydrateTrait;
+    
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -32,7 +35,7 @@ class Address
     private ?string $country = null;
 
     #[ORM\OneToOne(inversedBy: 'address', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?User $useraddress = null;
 
     #[ORM\OneToOne(mappedBy: 'address', cascade: ['persist', 'remove'])]
@@ -41,6 +44,12 @@ class Address
     #[ORM\OneToOne(mappedBy: 'address', cascade: ['persist', 'remove'])]
     private ?GamingPlace $gamingPlaceAddress = null;
     // OneToOne relation
+
+
+    public function __construct(array $init = []){
+        $this->hydrate($init);
+    }
+    
 
     public function getId(): ?int
     {

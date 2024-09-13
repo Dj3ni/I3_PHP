@@ -3,11 +3,13 @@
 namespace App\Entity;
 
 use App\Repository\ClubSubscriptionRepository;
+use App\Trait\HydrateTrait;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ClubSubscriptionRepository::class)]
 class ClubSubscription
 {
+    use HydrateTrait;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -20,11 +22,11 @@ class ClubSubscription
     private ?bool $isContributionOk = null;
 
     #[ORM\ManyToOne(inversedBy: 'clubSubscriptions')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?User $userSubscriptor = null;
 
     #[ORM\ManyToOne(inversedBy: 'userSubscriptions')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Club $clubSubscripted = null;
 
     public function getId(): ?int

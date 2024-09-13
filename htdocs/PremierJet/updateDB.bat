@@ -8,3 +8,5 @@ symfony console doctrine:database:create
 symfony console make:migration --no-interaction
 @REM On synchronise avec la DB
 symfony console doctrine:migration:migrate --no-interaction
+@REM On remplit la DB avec les données Fake (fixture load)
+symfony console doctrine:fixtures:load --no-interaction

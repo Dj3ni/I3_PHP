@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\EventRepository;
+use App\Trait\HydrateTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -11,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: EventRepository::class)]
 class Event
 {
+    use HydrateTrait;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -35,7 +37,7 @@ class Event
     private ?string $fee = null;
 
     #[ORM\ManyToOne(inversedBy: 'OrganizedEvents')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?User $userOrganisator = null;
 
     /**
@@ -50,8 +52,9 @@ class Event
     #[ORM\OneToMany(targetEntity: GamingPlace::class, mappedBy: 'event', orphanRemoval: true)]
     private Collection $gamingPlaces;
 
-    public function __construct()
+    public function __construct(array $init)
     {
+        $this->hydrate($init);
         $this->subscriptions = new ArrayCollection();
         $this->gamingPlaces = new ArrayCollection();
     }

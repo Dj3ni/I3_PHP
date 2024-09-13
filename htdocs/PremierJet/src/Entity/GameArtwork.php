@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\GameArtworkRepository;
+use App\Trait\HydrateTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -11,6 +12,8 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: GameArtworkRepository::class)]
 class GameArtwork
 {
+    use HydrateTrait;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -46,8 +49,9 @@ class GameArtwork
     #[ORM\Column(length: 150, nullable: true)]
     private ?string $edition = null;
 
-    public function __construct()
+    public function __construct(array $init =[])
     {
+        $this->hydrate($init);
         $this->isManagedby = new ArrayCollection();
     }
 

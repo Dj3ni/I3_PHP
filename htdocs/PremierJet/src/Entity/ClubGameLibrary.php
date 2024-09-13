@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ClubGameLibraryRepository;
+use App\Trait\HydrateTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -10,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: ClubGameLibraryRepository::class)]
 class ClubGameLibrary
 {
+    use HydrateTrait;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -22,11 +24,12 @@ class ClubGameLibrary
     private Collection $historics;
 
     #[ORM\ManyToOne(inversedBy: 'gameLibraries')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Club $club = null;
 
-    public function __construct()
+    public function __construct(array $init =[])
     {
+        $this->hydrate($init);
         $this->historics = new ArrayCollection();
     }
 
