@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20240913142922 extends AbstractMigration
+final class Version20240916142927 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -22,7 +22,7 @@ final class Version20240913142922 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE TABLE address (id INT AUTO_INCREMENT NOT NULL, useraddress_id INT DEFAULT NULL, locality VARCHAR(150) DEFAULT NULL, street VARCHAR(255) NOT NULL, number VARCHAR(50) NOT NULL, city VARCHAR(150) NOT NULL, postal_code INT NOT NULL, country VARCHAR(150) NOT NULL, UNIQUE INDEX UNIQ_D4E6F81B8CB838C (useraddress_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE boardgame (id INT AUTO_INCREMENT NOT NULL, status VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE club (id INT AUTO_INCREMENT NOT NULL, address_id INT DEFAULT NULL, name VARCHAR(150) NOT NULL, phone_number VARCHAR(50) DEFAULT NULL, email VARCHAR(255) NOT NULL, type VARCHAR(150) DEFAULT NULL, description LONGTEXT NOT NULL, UNIQUE INDEX UNIQ_B8EE3872F5B7AF75 (address_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE club (id INT AUTO_INCREMENT NOT NULL, address_id INT DEFAULT NULL, name VARCHAR(150) NOT NULL, game_type VARCHAR(255) NOT NULL, phone_number VARCHAR(50) DEFAULT NULL, email VARCHAR(255) NOT NULL, description LONGTEXT NOT NULL, UNIQUE INDEX UNIQ_B8EE3872F5B7AF75 (address_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE club_game_library (id INT AUTO_INCREMENT NOT NULL, club_id INT DEFAULT NULL, INDEX IDX_4EF64F6361190A32 (club_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE club_subscription (id INT AUTO_INCREMENT NOT NULL, user_subscriptor_id INT DEFAULT NULL, club_subscripted_id INT DEFAULT NULL, subscription_date DATETIME NOT NULL COMMENT \'(DC2Type:datetime_immutable)\', is_contribution_ok TINYINT(1) NOT NULL, INDEX IDX_D972CC233CECDD17 (user_subscriptor_id), INDEX IDX_D972CC23A41AA27F (club_subscripted_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE event (id INT AUTO_INCREMENT NOT NULL, user_organisator_id INT DEFAULT NULL, title VARCHAR(150) NOT NULL, date_start DATETIME NOT NULL, date_end DATETIME NOT NULL, date_occurency INT DEFAULT NULL, type VARCHAR(150) DEFAULT NULL, fee NUMERIC(10, 2) NOT NULL, INDEX IDX_3BAE0AA794589191 (user_organisator_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');

@@ -14,6 +14,29 @@ class FilmRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Film::class);
+    
+    }
+
+    public function filmEntreDeuxDurees(array $filters):array{
+        $em = $this->getEntityManager();
+        // Avec ceci, on obtient tous les livres
+        // $query = $em->createQuery("SELECT film.duree FROM App\Entity\Film film");
+
+        // Avec ceci, on obtient en fonction de la durée 
+        $query = $em->createQuery("SELECT film.duree FROM App\Entity\Film film WHERE film.duree BETWEEN :dureeMin AND :dureeMax");
+        $query->setParameter(":dureeMin", $filters["dureeMin"]);
+        $query->setParameter(":dureeMax", $filters["dureeMax"]);
+        $films = $query->getResult();
+        return($films);
+    }
+
+
+    public function filmParTitre(array $filter){
+        $em = $this->getEntityManager();
+        $query = $em->createQuery("SELECT film.titre FROM App\Entity\Film film WHERE film.titre LIKE :titre");
+        $query->setParameter(":titre", "%".$filter["titre"]."%");
+        $films = $query->getResult();
+        return($films);
     }
 
 //    /**

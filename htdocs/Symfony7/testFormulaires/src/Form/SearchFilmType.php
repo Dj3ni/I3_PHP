@@ -14,8 +14,11 @@ class SearchFilmType extends AbstractType
     {
         $builder
             ->add('titre', TextType::class)
-            ->add('duree', NumberType::class)
+            ->add('dureeMin', NumberType::class)
+            ->add('dureeMax', NumberType::class)
         ;
+        
+        $options['method'] = 'POST';
     }
 
     public function configureOptions(OptionsResolver $resolver): void
@@ -24,4 +27,5 @@ class SearchFilmType extends AbstractType
             // Configure your form options here
         ]);
     }
+
 }

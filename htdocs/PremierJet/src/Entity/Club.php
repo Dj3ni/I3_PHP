@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Enum\GameType;
 
 #[ORM\Entity(repositoryClass: ClubRepository::class)]
 class Club
@@ -21,6 +22,9 @@ class Club
 
     #[ORM\Column(length: 150)]
     private ?string $name = null;
+
+    #[ORM\Column (type: "string", enumType: GameType::class)]
+    private GameType $gameType;
 
     #[ORM\Column(length: 50, nullable: true)]
     private ?string $phoneNumber = null;
@@ -94,8 +98,6 @@ class Club
 
         return $this;
     }
-
-
 
     public function getDescription(): ?string
     {
@@ -177,6 +179,24 @@ class Club
                 $gameLibrary->setClub(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * Get the value of gameType
+     */
+    public function getGameType(): GameType
+    {
+        return $this->gameType;
+    }
+
+    /**
+     * Set the value of gameType
+     */
+    public function setGameType(GameType $gameType): self
+    {
+        $this->gameType = $gameType;
 
         return $this;
     }
