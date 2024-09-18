@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FormController!{% endblock %}
+
+{% block body %}
+
+<h1>Form airport</h1>
+
+{{form_start (form)}}
+
+{# form_row: va afficher l'input et l'étiquette #}
+{# form_widget: va afficher que l'input #}
+
+{{form_row (form.Code)}}
+{{form_row (form.Description)}}
+
+{#On ne veut pas afficher le reste  
+{{form_end (form,{render_rest:false})}}#}
+
+{# Mettre un bouton submit #}
+<button type="submit">Insérer</button>
+
+{{form_end (form)}}
+
+
+
+{% endblock %}

@@ -1,0 +1,13 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+home: #Je donne un nom à ma route
+    path: /  #La racine de mon chemin
+    controller: App\Controller\HomeController::index # Namespace + nom de mon controller + méthode que je souhaite exécuter
+
+recipes:
+    path: /recipe
+    controller: App\Controller\RecipeController::index

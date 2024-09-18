@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LiensController!{% endblock %}
+
+{% block body %}
+    <a href="{{path('accueil')}}">Home</a>
+    <a href="{{path('profession',
+                {nom: 'Martin', profession:'maçon'}
+                )}}">
+        Vers l'accueil avec mon nom et ma profession
+    </a>
+
+{% endblock %}

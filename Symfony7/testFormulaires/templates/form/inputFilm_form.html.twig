@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FormController!{% endblock %}
+
+{% block body %}
+
+<h1>Form film</h1>
+
+{{form_start (form)}}
+
+{#On ne veut pas afficher le reste  
+{{form_end (form,{render_rest:false})}}#}
+
+{# Mettre un bouton submit #}
+<button type="submit">Insérer</button>
+
+{{form_end (form)}}
+
+
+
+{% endblock %}
