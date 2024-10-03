@@ -24,5 +24,7 @@
   - Wireframe
     
 ### 2. Initiate Symfony Project
+`symfony new --webapp my_project`
 
+``
 
