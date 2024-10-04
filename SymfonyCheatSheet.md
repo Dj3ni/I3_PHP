@@ -18,6 +18,30 @@
 ## Steps for Project creation
 ### Index
 
+### Need to install
+- composer : https://getcomposer.org/
+- symfony 7: Download the exe file and copy it in xampp/php (to benefit from the path)
+    https://symfony.com/download
+- X Debug
+
+### VS Code 
+1. Extensions Needed:
+    - Intelephense
+    - PHP Namspace Resolver
+    - Twig Language 2
+      
+2. Emmet Abbreviation for Twig
+   - Go to the Parameters weel> Settings
+   - search for Emmet
+   - In the section Emmet: include Languages, click on add Item
+   - In the Item field : "twig" and value : "html"
+   - ok.
+     
+ ![image](https://github.com/user-attachments/assets/c0a89cdc-3f49-4308-8ed9-2273d79808cc)
+
+ Now you're all set to use emmet abbreviations in a twig template :)
+
+  
 ### 1. Workbook
   - Class Diagram or MCD
   - Cases Diagram or features repertory
@@ -27,4 +51,22 @@
 ```
 symfony new --webapp my_project
 ```
+When starting the project and then when you clone it in another workstation, put this command so you have all the dependencies installed:
+
+```
+composer install
+```
+To start the local server
+
+```
+symfony server:start
+```
+
+To stop it:
+```
+symfony server:stop
+```
+
+### 3. Safety and login Module Creation
+
 
