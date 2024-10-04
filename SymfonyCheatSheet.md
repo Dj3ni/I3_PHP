@@ -68,5 +68,19 @@ symfony server:stop
 ```
 
 ### 3. Safety and login Module Creation
+1. Symfony doesn't implement it by default so we need to ask it to install it
 
+```
+symfony composer req symfony/security-bundle
+```
+2. Create User class and set parameters. Watch out, not entity!
+```
+symfony console make:user
+```
+-->Symfony will create a user class with a database name "user". Be carefull, some DB servers won't allow it (like PostgreSQL) so you need to change this value : ![image](https://github.com/user-attachments/assets/61a9586f-6f91-4f42-be7a-58f11d168432)
 
+3. Get fixtures bundle
+```
+composer require doctrine/doctrine-fixtures-bundle --dev
+```
+5. 
