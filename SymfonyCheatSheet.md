@@ -130,20 +130,92 @@ If you want to add properties to your User entity:
 - MIGRATE your DB
   ```
       @REM Delete all in the migrations directory qui starting by V 
-    del migrations\V*
-    @REM Drop the Database
-    symfony console doctrine:database:drop --force --no-interaction
-    @REM Recreate the DB
-    symfony console doctrine:database:create
-    @REM Migrate all your entities
-    symfony console make:migration --no-interaction
-    @REM sync with DB
-    symfony console doctrine:migration:migrate --no-interaction
+        del migrations\V*
+        @REM Drop the Database
+        symfony console doctrine:database:drop --force --no-interaction
+        @REM Recreate the DB
+        symfony console doctrine:database:create
+        @REM Migrate all your entities
+        symfony console make:migration --no-interaction
+        @REM sync with DB
+        symfony console doctrine:migration:migrate --no-interaction
   ```
 - Load your fixtures
+### 4. Model Creation
+4.1. Create your entities
+
+```
+symfony console make:entity
+```
+Set parameters:
+- Parameter name (=column namefor your DB)
+- Field type:
+    Main Types
+      * string or ascii_string
+      * text
+      * boolean
+      * integer or smallint or bigint
+      * float
+    Array/Object Types
+      * array or simple_array
+      * json
+      * object
+      * binary
+      * blob
+    Date/Time Types
+      * datetime or datetime_immutable
+      * datetimetz or datetimetz_immutable
+      * date or date_immutable
+      * time or time_immutable
+      * dateinterval
+    Other Types
+      * enum
+      * decimal
+      * guid
+
+Then migrate
+```
+`symfony console make:migration`
+
+`symfony console doctrine:migrations:migrate`
+```
+
+4.2. Set relations between your entities
+- Give a name to your relation
+- Set your relation
+    Relationships/Associations
+      * ManyToOne
+      * OneToMany
+      * ManyToMany
+      * OneToOne
+
+  ``
+      What type of relationship is this?
+     ------------ -----------------------------------------------------------------------
+      Type         Description
+     ------------ -----------------------------------------------------------------------
+      ManyToOne    Each Exemplaire relates to (has) one Livre.
+                   Each Livre can relate to (can have) many Exemplaire objects
+    
+      OneToMany    Each Exemplaire can relate to (can have) many Livre objects.
+                   Each Livre relates to (has) one Exemplaire
+    
+      ManyToMany   Each Exemplaire can relate to (can have) many Livre objects.
+                   Each Livre can also relate to (can also have) many Exemplaire objects
+    
+      OneToOne     Each Exemplaire relates to (has) exactly one Livre.
+                   Each Livre also relates to (has) exactly one Exemplaire.
+     ------------ ----------------------------------------------------------------
+  ``
   
+- Give the Entity name you want to link
+- Set the name for the relation in that entity
+- Is null yes or no
 
-
+  NB:
+  - OneToOne: One entity "owns" the relation and has the foreign key
+  - OneToMany: set the relation from the One side
+  - ManyToMany: use it only if no parameters for that intermediary table, otherwise create a new entity
 
 
 
