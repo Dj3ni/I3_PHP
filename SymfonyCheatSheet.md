@@ -25,7 +25,7 @@
 - X Debug
 
 ### VS Code 
-1. Extensions Needed:
+1. Extensions needed:
     - Intelephense
     - PHP Namspace Resolver
     - Twig Language 2
@@ -130,5 +130,5 @@ Seperate fixture:
 - Get that référence in the other entity fixture:
   ![image(9)](https://github.com/user-attachments/assets/6e46cd95-879e-4c95-83ca-5a16ec458c8e)
   That fixture is dependent of the first one so don't forget to set the dependency.
-
+4. 
 5. 
