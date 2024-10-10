@@ -79,10 +79,82 @@ symfony console make:user
 ```
 -->Symfony will create a user class with a database name "user". Be carefull, some DB servers won't allow it (like PostgreSQL) so you need to change this value : ![image](https://github.com/user-attachments/assets/61a9586f-6f91-4f42-be7a-58f11d168432)
 
-3.3. Get fixtures bundle
+3.3. Get fixtures bundle and load the fixture
 ```
 composer require doctrine/doctrine-fixtures-bundle --dev
 ```
+```
+symfony console doctrine:fixtures:load --no-interaction
+```
+3.4. Create login/logout/testUnits forms
+```
+symfony console make:security:form-login
+```
+3.5. Create the Login controller
+
+```
+symfony console make:controller Login
+```
+3.6. Create fixtures to fill in your DB
+/!\ Don't forget to hash the password!
+```
+// Hasher de pwd
+    private UserPasswordHasherInterface $pwdHasher;
+
+    // Insert it in the construct function
+    public function __construct(UserPasswordHasherInterface $pwdHasher)
+    {
+        $this->pwdHasher = $pwdHasher;
+    }
+    // Use it for your object user
+    $pwdHashed = $this->pwdHasher->hashPassword($user,"Password");
+
+```
+3.7. Set the paths for login and logout
+- Modify your file security.yaml and add the default target path
+  ![image(10)](https://github.com/user-attachments/assets/fe8f24b7-2036-4832-967f-d9c9dcc44d20)
+- Create the controller that will manage this path (usually called HomeController). the name of the path must be the same that you used in default target path
+- Modify your Twig template
+  NB:
+      - for a login page, you cannot have extends base html
+      - or if you want to restrict access, use function is_granted('ROLE_NAME').
+3.8. Create registration form and accept uniq identification
+  ```
+  symfony console make:registration-form
+  ```
+For each registration, symfony will give the "ROLE_USER" by default (that way, the DB only stocks other ROLES)
+If you want to add properties to your User entity:
+- use the command make:entity
+- update your user fixtures
+- update your registration form
+- MIGRATE your DB
+  ```
+      @REM Delete all in the migrations directory qui starting by V 
+    del migrations\V*
+    @REM Drop the Database
+    symfony console doctrine:database:drop --force --no-interaction
+    @REM Recreate the DB
+    symfony console doctrine:database:create
+    @REM Migrate all your entities
+    symfony console make:migration --no-interaction
+    @REM sync with DB
+    symfony console doctrine:migration:migrate --no-interaction
+  ```
+- Load your fixtures
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
 3.1.1. Create fixtures: 
 ```
 symfony console make:fixture
