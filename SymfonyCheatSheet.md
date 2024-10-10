@@ -83,4 +83,17 @@ symfony console make:user
 ```
 composer require doctrine/doctrine-fixtures-bundle --dev
 ```
+Create fixtures: 
+```
+symfony console make:fixture
+```
+- Then choose the Entity for wich you want to create the fixture.
+- Give a name for your fixture: don't forget to put Fixture in the name of your fixture so Symfony recognize it. For example: UserFixture
+- code your fixture:
+You can use the faker library:
+```
+composer require fakerphp/faker
+```
+Then in 
+- 
 5. 
