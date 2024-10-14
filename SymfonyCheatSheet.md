@@ -11,7 +11,7 @@
     
     https://github.com/choquitofrito/Symfony7/blob/main/DocSymfony/SYLLABUS.md
     
-    Doc de Twig: https://twig.symfony.com/doc/3.x/tags/block.html
+- Doc de Twig: https://twig.symfony.com/doc/3.x/tags/block.html
     
     ![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/e69249ab-3777-45a0-9046-0028bb159bc2/00b5967a-cc74-487d-b6a1-904a1417d517/84a88f0c-11c4-42bf-aead-0076312d89dc.png)
 
@@ -141,7 +141,9 @@ If you want to add properties to your User entity:
         symfony console doctrine:migration:migrate --no-interaction
   ```
 - Load your fixtures
+  
 ### 4. Model Creation
+Try to commit between each step so if you make a mistake, you don't start again from scratch.
 4.1. Create your entities
 
 ```
@@ -217,17 +219,8 @@ Then migrate
   - OneToMany: set the relation from the One side
   - ManyToMany: use it only if no parameters for that intermediary table, otherwise create a new entity
 
-
-
-
-
-
-
-
-
-
-
-3.1.1. Create fixtures: 
+5. Fixtures
+5.1. Create fixtures: 
 ```
 symfony console make:fixture
 ```
@@ -244,7 +237,7 @@ symfony console make:fixture
   symfony console doctrine:fixtures:load
   ```
   
-3.3.2. Faker Library
+5.2. Faker Library
   
 ```
 composer require fakerphp/faker
@@ -257,7 +250,7 @@ To use faker in your fixture file:
        - Flush to send it to your DB
        ![image](https://github.com/user-attachments/assets/354cb61f-fb74-4803-9d60-0b70095f0fd5)
     
-3.3.3. Fixture for OneToOne relations
+5.3. Fixture for OneToOne relations
 In a OneToOne relation, one entity "own" the relation and will have the foreign key.
 You can chose to create a fixture for several entities but you'll have to do it manually.
 Common fixture:
@@ -274,5 +267,42 @@ Seperate fixture:
 - Get that référence in the other entity fixture:
   ![image(9)](https://github.com/user-attachments/assets/6e46cd95-879e-4c95-83ca-5a16ec458c8e)
   That fixture is dependent of the first one so don't forget to set the dependency.
-4. 
+
+5.4. Fixture for OneToMany relations
+First we make an instance for the relation one the One side:
+```
+$this->addReference('alias',$variableForOBject);
+```
+Then we get this reference in the Many side and link it : it will create a foreign key in the Many Table.
+All the informations are stocken in the Many table.
+Example to access these data:
+```
+// Get user with id
+$user = $userRepository->find(1);
+
+// Get all events organized by that user
+$evenements = $user->getEvenements(); // Cette méthode est générée par la relation OneToMany
+
+foreach ($evenements as $evenement) {
+    echo $evenement->getNom();
+}
+```
+5.5. Keep in mind
+
+cascade-persist : 
+Si on a une entité qui contient des objets d'autres entités (ex: un Livre qui contient des Exemplaires), et nous modifions/rajoutons ces dernières (ex: on rajoute un Exemplaire au Livre, on modifie un des 
+Exemplaires du Livre), nous allons devoir faire uniquement persist sur la première et Doctrine fera persist sur toutes les entités associées.
+  
+6. Controllers
+
+   A controller is linked to an Entity / an action. There can be many different actions in a controller each will be represented with a route and a method.
+   Notation:
+   ```
+   #[Route ("/route", name: "path_name"]
+   public function action(arguments){
+    
+
+   }
+   ```
+   
 5. 
